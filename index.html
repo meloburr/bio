@@ -3,24 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0388d1">
-    <title>Bio Profile</title>
+    <meta name="theme-color" content="#111318">
+    <title>Meloburr | Profile</title>
+
     <style>
       :root {
         color-scheme: dark;
-        --ink: #eef7ff;
-        --muted: #a7bed6;
-        --line: rgba(170, 214, 255, 0.22);
-        --panel: rgba(9, 18, 36, 0.72);
-        --panel-strong: rgba(10, 24, 48, 0.92);
-        --cyan: #24d5ff;
-        --blue: #1188ff;
-        --violet: #8b63ff;
-        --pink: #d652ff;
-        --green: #4be3a3;
-        font-family:
-          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", sans-serif;
+        --background: #0b0c0f;
+        --card: #14161b;
+        --card-inner: #181a20;
+        --ink: #f1f1f2;
+        --muted: #9297a1;
+        --line: #292c34;
+        --accent: #a6b4ff;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+          BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
       * {
@@ -36,42 +33,14 @@
       body {
         align-items: center;
         background:
-          radial-gradient(circle at 50% 0%, rgba(240, 250, 255, 0.95) 0 8%, transparent 30%),
-          radial-gradient(circle at 10% 8%, rgba(214, 82, 255, 0.76), transparent 28%),
-          radial-gradient(circle at 83% 12%, rgba(36, 213, 255, 0.72), transparent 32%),
-          radial-gradient(circle at 92% 92%, rgba(55, 255, 177, 0.42), transparent 28%),
-          radial-gradient(circle at 12% 95%, rgba(17, 136, 255, 0.56), transparent 30%),
-          linear-gradient(150deg, #030613 0%, #06152a 44%, #10172e 100%);
+          radial-gradient(ellipse at 50% 0%, rgba(116, 127, 177, 0.1), transparent 50%),
+          var(--background);
         color: var(--ink);
         display: grid;
         justify-items: center;
         min-height: 100vh;
         overflow-x: hidden;
         padding: 24px;
-      }
-
-      body::before {
-        background:
-          linear-gradient(90deg, rgba(214, 82, 255, 0.9), rgba(17, 136, 255, 0.8), rgba(75, 227, 163, 0.75)),
-          linear-gradient(180deg, transparent, rgba(3, 6, 19, 0.78));
-        content: "";
-        inset: 0;
-        opacity: 0.52;
-        pointer-events: none;
-        position: fixed;
-      }
-
-      body::after {
-        background:
-          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.026) 1px, transparent 1px);
-        background-size: 36px 36px;
-        content: "";
-        inset: 0;
-        mask-image: radial-gradient(circle, black 0 38%, transparent 72%);
-        opacity: 0.42;
-        pointer-events: none;
-        position: fixed;
       }
 
       main {
@@ -81,62 +50,29 @@
         min-height: calc(100vh - 48px);
         position: relative;
         width: min(100%, 720px);
-        z-index: 1;
       }
 
-      .bio-shell {
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.04)),
-          var(--panel);
+      .bio-card {
+        background: var(--card);
         border: 1px solid var(--line);
-        border-radius: 28px;
+        border-radius: 20px;
         box-shadow:
-          0 34px 90px rgba(0, 0, 0, 0.48),
-          0 0 0 1px rgba(255, 255, 255, 0.04) inset,
-          0 0 54px rgba(17, 136, 255, 0.24);
-        overflow: hidden;
-        padding: 1px;
-        width: 100%;
-      }
-
-      .bio-panel {
-        align-items: center;
-        backdrop-filter: blur(22px);
-        background:
-          radial-gradient(circle at 50% 0%, rgba(91, 170, 255, 0.24), transparent 34%),
-          linear-gradient(180deg, rgba(7, 17, 35, 0.86), rgba(7, 13, 25, 0.94));
-        border-radius: 27px;
-        display: flex;
-        flex-direction: column;
-        gap: 22px;
-        padding: clamp(28px, 7vw, 46px);
+          0 24px 70px rgba(0, 0, 0, 0.5),
+          0 0 32px rgba(127, 143, 211, 0.08);
+        padding: clamp(28px, 7vw, 52px);
         text-align: center;
-      }
-
-      .avatar-ring {
-        align-items: center;
-        background:
-          radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.95), transparent 34%),
-          conic-gradient(from 220deg, var(--pink), var(--blue), var(--cyan), var(--green), var(--violet), var(--pink));
-        border-radius: 999px;
-        box-shadow:
-          0 20px 45px rgba(0, 0, 0, 0.38),
-          0 0 34px rgba(36, 213, 255, 0.32);
-        display: grid;
-        height: 148px;
-        justify-items: center;
-        padding: 5px;
-        width: 148px;
-      }
-
-      .avatar-ring img {
-        aspect-ratio: 1;
-        border: 8px solid #071326;
-        border-radius: 999px;
-        display: block;
-        height: 100%;
-        object-fit: cover;
         width: 100%;
+      }
+
+      .avatar {
+        border: 1px solid #373b46;
+        border-radius: 50%;
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.42);
+        display: block;
+        height: 144px;
+        margin: 0 auto 24px;
+        object-fit: cover;
+        width: 144px;
       }
 
       .profile-info {
@@ -146,112 +82,108 @@
       }
 
       h1 {
-        font-size: clamp(28px, 6vw, 42px);
+        color: var(--ink);
+        font-size: clamp(30px, 6vw, 42px);
+        font-weight: 750;
+        letter-spacing: -1.5px;
         line-height: 1.1;
         margin: 0;
-        font-weight: 800;
-      }
-
-      .name-gradient {
-        background: linear-gradient(90deg, #c356ff 0%, #6d7cff 42%, #23d5ff 100%);
-        background-clip: text;
-        color: transparent;
-        -webkit-background-clip: text;
       }
 
       .username {
-        color: var(--cyan);
+        color: var(--muted);
         font-size: 16px;
-        font-weight: 600;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.3px;
         margin: 0;
       }
 
-      .bio-text {
-        color: var(--muted);
-        font-size: 16px;
-        line-height: 1.5;
-        margin: 4px 0 0 0;
-        max-width: 360px;
+      .pronouns {
+        background: #20232b;
+        border: 1px solid #30343e;
+        border-radius: 999px;
+        color: #c6cad3;
+        font-size: 13px;
+        margin: 6px 0 0;
+        padding: 6px 11px;
       }
 
-      .stats-box {
-        display: flex;
-        justify-content: space-around;
-        background: var(--panel-strong);
-        border: 1px solid rgba(125, 202, 255, 0.15);
-        border-radius: 18px;
-        padding: 16px;
-        width: min(100%, 460px);
-      }
-
-      .stat-item {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .stat-value {
-        font-size: 18px;
-        font-weight: 750;
-        color: var(--ink);
-      }
-
-      .stat-label {
-        font-size: 12px;
-        color: var(--muted);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      .links-container {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        width: min(100%, 460px);
-      }
-
-      .link-btn {
-        align-items: center;
-        background: linear-gradient(135deg, rgba(4, 108, 186, 0.3), rgba(3, 166, 215, 0.3));
-        border: 1px solid rgba(165, 226, 255, 0.2);
+      .projects {
+        background: var(--card-inner);
+        border: 1px solid var(--line);
         border-radius: 14px;
-        color: white;
-        text-decoration: none;
+        margin: 30px auto 24px;
+        max-width: 460px;
+        padding: 17px;
+        width: 100%;
+      }
+
+      .projects-value {
+        color: var(--ink);
+        display: block;
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .projects-label {
+        color: var(--muted);
+        display: block;
+        font-size: 12px;
+        letter-spacing: 1px;
+        margin-top: 4px;
+        text-transform: uppercase;
+      }
+
+      .links {
+        display: grid;
+        gap: 12px;
+        margin: 0 auto;
+        max-width: 460px;
+        width: 100%;
+      }
+
+      .link-button {
+        align-items: center;
+        background: #1a1c22;
+        border: 1px solid #30333b;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+        color: var(--ink);
         display: flex;
-        justify-content: center;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 600;
+        gap: 12px;
+        justify-content: center;
         min-height: 52px;
         padding: 12px 20px;
-        transition: all 0.2s ease;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        text-decoration: none;
+        transition:
+          background 160ms ease,
+          border-color 160ms ease,
+          box-shadow 160ms ease,
+          transform 160ms ease;
       }
 
-      .link-btn:hover {
-        background: linear-gradient(135deg, #046cba, #03a6d7);
-        border-color: rgba(165, 226, 255, 0.4);
-        box-shadow: 0 10px 24px rgba(0, 137, 210, 0.35);
+      .link-button:hover {
+        background: #22252d;
+        border-color: #484d5b;
+        box-shadow:
+          0 8px 22px rgba(0, 0, 0, 0.28),
+          0 0 18px rgba(166, 180, 255, 0.08);
         transform: translateY(-2px);
       }
 
-      .link-btn.primary {
-        background: linear-gradient(135deg, #046cba, #03a6d7);
-        border-color: rgba(165, 226, 255, 0.34);
-        box-shadow: 0 14px 36px rgba(0, 137, 210, 0.28);
-      }
-
-      .link-btn.primary:hover {
-        box-shadow: 0 14px 40px rgba(36, 213, 255, 0.45);
-      }
-
       .link-icon {
-        height: 20px;
-        margin-right: 10px;
-        width: 20px;
+        display: block;
+        flex: 0 0 22px;
+        height: 22px;
+        width: 22px;
       }
 
-      .link-btn svg {
+      .github-icon {
+        fill: currentColor;
+      }
+
+      .discord-icon {
         fill: currentColor;
       }
 
@@ -264,64 +196,71 @@
           min-height: calc(100vh - 28px);
         }
 
-        .bio-panel {
-          border-radius: 23px;
+        .bio-card {
+          border-radius: 17px;
+          padding: 30px 22px;
         }
 
-        .bio-shell {
-          border-radius: 24px;
+        .avatar {
+          height: 124px;
+          width: 124px;
         }
+      }
 
-        .avatar-ring {
-          height: 128px;
-          width: 128px;
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
         }
       }
     </style>
   </head>
+
   <body>
     <main>
-      <section class="bio-shell" aria-label="User Profile Bio">
-        <div class="bio-panel">
-          <div class="avatar-ring" aria-hidden="true">
-            <img alt="Profile Avatar" src="">
-          </div>
+      <section class="bio-card" aria-label="Meloburr's profile">
+        <img class="avatar" src="https://github.com/meloburr.png" alt="">
 
-          <div class="profile-info">
-            <h1><span class="name-gradient">Meloburr</span></h1>
-            <p class="username">@meloburr</p>
-            <p class="bio-text"></p>
-          </div>
-
-          <div class="stats-box">
-            <div class="stat-item">
-              <span class="stat-value">0</span>
-              <span class="stat-label">Followers</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-value">2</span>
-              <span class="stat-label">Projects</span>
-            </div>
-          </div>
-
-          <div class="links-container">
-            <a href="#" class="link-btn primary">View Portfolio</a>
-
-            <a href="https://github.com/meloburr" class="link-btn" target="_blank" rel="noopener noreferrer" aria-label="Visit Meloburr on GitHub">
-              <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.08c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.77 2.1 3.12 2.1.51-.02 1.03-.12 1.5-.31.1-.72.4-1.2.73-1.48-2.47-.28-5.06-1.24-5.06-5.5a4.3 4.3 0 0 1 1.15-2.98c-.12-.28-.5-1.42.1-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.44 3.05-1.14 3.05-1.14.6 1.53.22 2.67.1 2.95a4.3 4.3 0 0 1 1.15 2.98c0 4.27-2.6 5.22-5.08 5.49.4.35.76 1.02.76 2.06v3.06c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/>
-              </svg>
-              GitHub
-            </a>
-
-            <a href="https://discord.com/users/1159886218289483776" class="link-btn" target="_blank" rel="noopener noreferrer" aria-label="Visit Meloburr on Discord">
-              <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M19.73 5.04a19.3 19.3 0 0 0-4.75-1.47.07.07 0 0 0-.07.04c-.2.36-.42.84-.57 1.22a17.8 17.8 0 0 0-5.34 0c-.15-.39-.38-.86-.58-1.22a.07.07 0 0 0-.07-.04 19.2 19.2 0 0 0-4.75 1.47.06.06 0 0 0-.03.03C.55 9.53-.28 13.9.13 18.22c0 .02.01.04.03.05a19.4 19.4 0 0 0 5.82 2.94.07.07 0 0 0 .08-.03c.45-.61.85-1.26 1.2-1.94a.07.07 0 0 0-.04-.1 12.8 12.8 0 0 1-1.82-.87.07.07 0 0 1-.01-.12c.12-.09.24-.18.35-.27a.07.07 0 0 1 .07-.01c3.82 1.75 7.96 1.75 11.73 0a.07.07 0 0 1 .07.01c.11.09.23.18.35.27a.07.07 0 0 1-.01.12c-.58.34-1.19.63-1.82.87a.07.07 0 0 0-.04.1c.35.68.75 1.33 1.2 1.94a.07.07 0 0 0 .08.03 19.3 19.3 0 0 0 5.83-2.94.07.07 0 0 0 .03-.05c.49-4.99-.82-9.32-3.45-13.15a.06.06 0 0 0-.03-.03ZM8.02 14.9c-1.15 0-2.1-1.06-2.1-2.37s.93-2.37 2.1-2.37c1.18 0 2.12 1.07 2.1 2.37 0 1.31-.93 2.37-2.1 2.37Zm7.96 0c-1.16 0-2.1-1.06-2.1-2.37s.93-2.37 2.1-2.37c1.18 0 2.12 1.07 2.1 2.37 0 1.31-.92 2.37-2.1 2.37Z"/>
-              </svg>
-              Discord
-            </a>
-          </div>
+        <div class="profile-info">
+          <h1>Meloburr</h1>
+          <p class="username">@meloburr</p>
+          <p class="pronouns">He/Him</p>
         </div>
+
+        <div class="projects">
+          <span class="projects-value">2</span>
+          <span class="projects-label">Projects</span>
+        </div>
+
+        <nav class="links" aria-label="Social links">
+          <a
+            class="link-button"
+            href="https://github.com/meloburr"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <svg class="link-icon github-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.08c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.77 2.1 3.12 2.1.51-.02 1.03-.12 1.5-.31.1-.72.4-1.2.73-1.48-2.47-.28-5.06-1.24-5.06-5.5a4.3 4.3 0 0 1 1.15-2.98c-.12-.28-.5-1.42.1-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.44 3.05-1.14 3.05-1.14.6 1.53.22 2.67.1 2.95a4.3 4.3 0 0 1 1.15 2.98c0 4.27-2.6 5.22-5.08 5.49.4.35.76 1.02.76 2.06v3.06c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/>
+            </svg>
+            GitHub
+          </a>
+
+          <a
+            class="link-button"
+            href="https://discord.com/users/1159886218289483776"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Discord"
+          >
+            <svg class="link-icon discord-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19.73 5.04a19.3 19.3 0 0 0-4.75-1.47.07.07 0 0 0-.07.04c-.2.36-.42.84-.57 1.22a17.8 17.8 0 0 0-5.34 0c-.15-.39-.38-.86-.58-1.22a.07.07 0 0 0-.07-.04 19.2 19.2 0 0 0-4.75 1.47.06.06 0 0 0-.03.03C.55 9.53-.28 13.9.13 18.22c0 .02.01.04.03.05a19.4 19.4 0 0 0 5.82 2.94.07.07 0 0 0 .08-.03c.45-.61.85-1.26 1.2-1.94a.07.07 0 0 0-.04-.1 12.8 12.8 0 0 1-1.82-.87.07.07 0 0 1-.01-.12c.12-.09.24-.18.35-.27a.07.07 0 0 1 .07-.01c3.82 1.75 7.96 1.75 11.73 0a.07.07 0 0 1 .07.01c.11.09.23.18.35.27a.07.07 0 0 1-.01.12c-.58.34-1.19.63-1.82.87a.07.07 0 0 0-.04.1c.35.68.75 1.33 1.2 1.94a.07.07 0 0 0 .08.03 19.3 19.3 0 0 0 5.83-2.94.07.07 0 0 0 .03-.05c.49-4.99-.82-9.32-3.45-13.15a.06.06 0 0 0-.03-.03ZM8.02 14.9c-1.15 0-2.1-1.06-2.1-2.37s.93-2.37 2.1-2.37c1.18 0 2.12 1.07 2.1 2.37 0 1.31-.93 2.37-2.1 2.37Zm7.96 0c-1.16 0-2.1-1.06-2.1-2.37s.93-2.37 2.1-2.37c1.18 0 2.12 1.07 2.1 2.37 0 1.31-.92 2.37-2.1 2.37Z"/>
+            </svg>
+            Discord
+          </a>
+        </nav>
       </section>
     </main>
   </body>
